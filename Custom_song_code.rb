@@ -1,38 +1,33 @@
 #custom_song_sample
-EoO_sample= "C:/Users/olivia_marquez/Documents/Audacity/Bad Bunny - EoO (2025).wav"
+drum_sample= "C:/Users/olivia_marquez/Documents/Audacity/Drums Only – GATA ONLY - FloyyMenor ft. Cris MJ - (Drum Track).wav"
 
 use_bpm 100
-live_loop :bass do
-  sample :drum_bass_soft
+
+define :bass do
   sample :ambi_glass_hum, beat_stretch: 16
-  sleep 6
-  sample :drum_bass_soft
+  sleep 16
   sample :ambi_glass_hum, beat_stretch: 8
-  sleep 4
-  sample :drum_bass_soft
+  sleep 8
   sample :ambi_glass_hum, beat_stretch: 4
+  sleep 4
+  sample :ambi_glass_hum, beat_stretch: 2
   sleep 2
+end
+
+live_loop :bass do
+  bass
 end
 
 sleep 10
 
-live_loop :drum do
-  sample :drum_bass_hard, amp: 0.5
-  sleep 0.5
-  sample :drum_bass_soft, amp: 0.5
-  sleep 0.5
-  sample :drum_bass_soft, amp: 0.5
-  sleep 0.5
-  sample :drum_bass_soft, amp: 0.5
-  sleep 0.5
+live_loop :drums do
+  sample drum_sample
+  sleep 6
 end
 
 
 sleep 15
-live_loop :custom_sample do
-  sample EoO_sample, amp: 0.2
-  sleep 2
-end
+
 
 live_loop :piano do
   use_synth :tri
