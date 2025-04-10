@@ -1,231 +1,308 @@
+
 drum_beat_sample="C:/Users/olivia_marquez/Downloads/audiomass-output2.wav"
 
 
 
-use_bpm 100
+use_bpm 128
 
 live_loop :drums do
-  7.times do
-    7.times do
-      sample drum_beat_sample, beat_stretch: 6
-      sleep 6
+  5.times do
+    5.times do
+      sample drum_beat_sample, beat_stretch: 8
+      sleep 8
     end
     stop
   end
 end
+
 sleep 2
 
-10.times do
-  use_synth :kalimba
-  play :bs4, amp: 10
-  sleep 0.5
-  play :bs4, amp: 10
-  sleep 0.5
-  play :a4, amp: 10
-  sleep 0.5
-  play :f4 ,beat_stretch: 2, amp: 10
-  sleep 0.5
-  play :f4 ,beat_stretch: 2, amp: 10
-  sleep 1.5
+
+live_loop :bell do
+  30.times do
+    sample :drum_cymbal_closed
+    sleep 0.5
+    sample :drum_cymbal_pedal
+    sleep 0.5
+  end
+  stop
 end
 
-sleep 6
+sleep 2
+
+notes = [:eb4,:ab4,:ab4,:ab4,:ab4,:eb4,:ab4,:c5,:c5,:ab4,:ab4]
+sleeps_list = [0.25,0.5,0.25,0.25,0.25,0.5,0.5,0.5,0.5,0.5, 0.5]
+x=0
+i=0
+
+
+live_loop :piano do
+  use_synth :piano
+  2.times do
+    11.times do
+      play notes[x]
+      x = x + 1
+      sleep sleeps_list[i]
+      i = i + 1
+    end
+    x=0
+    i=0
+  end
+  stop
+end
+
+sleep 9
+
+
 
 use_synth :piano
-#start of measure 1
-play :es4
-sleep 0.25
-play :as4
-sleep 0.50
-play :as4
-sleep 0.25
+with_fx :eq do
+  
+  #end of measure 2
+  #start of measure 3
+  play :f4
+  sleep 0.25
+  play :bb4
+  sleep 0.5
+  play :bb4
+  sleep 0.25
+  
+  
+  play :bb4
+  sleep 0.25
+  play :f4
+  sleep 0.25
+  play :bb4
+  sleep 0.5
+  
+  play :db5
+  sleep 0.5
+  play :db5
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  #repeats m4
+  play :f4
+  sleep 0.25
+  play :bb4
+  sleep 0.5
+  play :bb4
+  sleep 0.25
+  
+  
+  play :bb4
+  sleep 0.25
+  play :f4
+  sleep 0.25
+  play :bb4
+  sleep 0.5
+  
+  play :db5
+  sleep 0.5
+  play :db5
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  
+  #end of measure 4
+  #start of measure 5
+  play :g4
+  sleep 0.25
+  play :c5
+  sleep 0.5
+  play :c5
+  sleep 0.25
+  
+  play :c5
+  sleep 0.25
+  play :g4
+  sleep 0.25
+  play :c5
+  sleep 0.5
+  
+  play :eb5
+  sleep 0.5
+  play :eb5
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  #repeats m6
+  play :g4
+  sleep 0.25
+  play :c5
+  sleep 0.5
+  play :c5
+  sleep 0.25
+  
+  play :c5
+  sleep 0.25
+  play :g4
+  sleep 0.25
+  play :c5
+  sleep 0.5
+  
+  play :eb5
+  sleep 0.5
+  play :eb5
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  #end of measrue 6
+  #start of measure 7
+  
+  play :f4
+  sleep 0.25
+  play :ab4
+  sleep 0.5
+  play :ab4
+  sleep 0.25
+  
+  play :ab4
+  sleep 0.25
+  play :f4
+  sleep 0.25
+  play :ab4
+  sleep 0.5
+  
+  play :ab4
+  sleep 0.5
+  play :db5
+  sleep 0.5
+  play :ab4
+  sleep 0.5
+  play :db5
+  sleep 0.5
+  #end of measure 7
+  #start of measure 8
+  
+  play :f4
+  sleep 0.25
+  play :ab4
+  sleep 0.5
+  play :ab4
+  sleep 0.25
+  
+  play :ab4
+  sleep 0.25
+  play :f4
+  sleep 0.25
+  play :ab4
+  sleep 0.5
+  
+  play :ab4
+  sleep 0.5
+  play :bb4
+  sleep 0.5
+  play :ab4
+  sleep 0.5
+  play :bb4
+  sleep 0.5
+end
 
-play :as4
+#m9
+play :c5
+sleep 0.75
+play :ab4
 sleep 0.25
-play :es4
-sleep 0.25
-play :as4
-sleep 0.50
+sleep 3
 
-play :cs5
-sleep 0.5
-play :cs5
-sleep 0.5
-play :as4
-sleep 0.5
-play :as4
-sleep 0.5
-#repeats
-play :es4
-sleep 0.25
-play :as4
-sleep 0.50
-play :as4
-sleep 0.25
-
-play :as4
-sleep 0.25
-play :es4
-sleep 0.25
-play :as4
-sleep 0.50
-
-play :cs5
-sleep 0.5
-play :cs5
-sleep 0.5
-play :as4
-sleep 0.5
-play :as4
-sleep 0.5
-
-#end of measure 1
-#start of measure 2
-play :fs4
-sleep 0.25
-play :bs4
-sleep 0.5
-play :bs4
-sleep 0.25
+#m10
+0.5
+5.times do
+  play :c5
+  sleep 0.5
+end
 
 
-play :bs4
-sleep 0.25
-play :fs4
-sleep 0.25
-play :bs4
-sleep 0.5
-
-play :ds5
-sleep 0.5
-play :ds5
-sleep 0.5
-play :cs5
-sleep 0.5
-play :cs5
-sleep 0.5
-#repeats
-play :f4
-sleep 0.25
-play :b4
-sleep 0.5
-play :b4
-sleep 0.25
-
-
-play :b4
-sleep 0.25
-play :f4
-sleep 0.25
-play :b4
-sleep 0.5
-
-play :d5
-sleep 0.5
-play :d5
+play :db5
 sleep 0.5
 play :c5
 sleep 0.5
+
+
+#m11
+play :bb4
+sleep 0.5
 play :c5
+sleep 0.5
+sleep 3
+
+
+#m12
+sleep 2.5
+play :bb4
+sleep 0.5
+play :bb4
+sleep 0.5
+play :eb5
 sleep 0.5
 
-#end of measure 2
-#start of measure 3
-play :g4
-sleep 0.25
-play :c5
-sleep 0.5
-play :c5
-sleep 0.25
 
+#m13
+play :db5
+sleep 1
 play :c5
-sleep 0.25
-play :g4
-sleep 0.25
-play :c5
-sleep 0.5
+sleep 1
+sleep 2
 
-play :e5
-sleep 0.5
-play :e5
-sleep 0.5
-play :c5
-sleep 0.5
-play :c5
-sleep 0.5
-#repeats
-play :g4
-sleep 0.25
-play :c5
-sleep 0.5
-play :c5
-sleep 0.25
+#m14
+4.times do
+  play :c5
+  sleep 0.5
+end
+define :extra_notes do |my_notes|
+  play my_notes
+  sleep 0.5
+end
 
-play :c5
-sleep 0.25
-play :g4
-sleep 0.25
-play :c5
-sleep 0.5
+live_loop :pianoA do
+  2.times do
+    extra_notes :db5
+    extra_notes :c5
+    extra_notes :bb4
+    extra_notes :ab4
+    
+    
+    
+    extra_notes :c5
+    extra_notes :bb4
+    
+    
+    sleep 1.5
+    
+    extra_notes :bb4
+    extra_notes :bb4
+    extra_notes :ab4
+    
+    
+    #m16
+    extra_notes :c5
+    extra_notes :bb4
+    
+    sleep 1
+    
+    extra_notes :bb4
+    extra_notes :bb4
+    extra_notes :bb4
+    extra_notes :ab4
+    extra_notes :bb4
+    
+    
+  end
+  stop
+end
 
-play :e5
-sleep 0.5
-play :e5
-sleep 0.5
-play :c5
-sleep 0.5
-play :c5
-sleep 0.5
-#end of measrue 3
-#start of measure 4
 
-play :f4
-sleep 0.25
-play :a4
-sleep 0.5
-play :a4
-sleep 0.25
 
-play :a4
-sleep 0.25
-play :f4
-sleep 0.25
-play :a4
-sleep 0.5
 
-play :a4
-sleep 0.5
-play :d5
-sleep 0.5
-play :a4
-sleep 0.5
-play :d5
-sleep 0.5
-#end of measure 4
-#start of measure 5
-
-play :f4
-sleep 0.25
-play :a4
-sleep 0.5
-play :a4
-sleep 0.25
-
-play :a4
-sleep 0.25
-play :f4
-sleep 0.25
-play :a4
-sleep 0.5
-
-play :a4
-sleep 0.5
-play :b4
-sleep 0.5
-play :a4
-sleep 0.5
-play :b4
-sleep 0.5
 
 
 
