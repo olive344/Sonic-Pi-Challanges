@@ -92,7 +92,7 @@ sleep 2
 
 
 live_loop :bell do
-  46.times do
+  47.times do
     sample :drum_cymbal_closed
     sleep 0.5
     sample :drum_cymbal_pedal
